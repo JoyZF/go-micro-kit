@@ -1,6 +1,8 @@
 # go-micro-kit
 ![](https://img.freepik.com/free-vector/construction-website-page-with-black-yellow-striped-borders_260559-362.jpg?size=626&ext=jpg)
-be under construction... 
+
+### be under construction...
+### todo list
 - [x] go-micro
 - [x] MySQL
 - [x] Redis
