@@ -1,0 +1,14 @@
+App:
+  Name: "greeter"
+  Env: "dev"
+MySQL:
+  Host: "101.43.17.86"
+  Port: 33061
+  DbName: "open_bfe"
+  User: "root"
+  Pass: "123456"
+Redis:
+  Host: "101.43.17.86"
+  Port: 6379
+  Password: ""
+  DB: 0

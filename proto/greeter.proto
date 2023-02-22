@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option go_package = "./greeter;greeter";
+
+service Greeter {
+	rpc Hello(Request) returns (Response) {}
+	rpc Set(SetRequest) returns (ComRsp) {}
+}
+
+message Request {
+	string name = 1;
+}
+
+message Response {
+	string greeting = 2;
+}
+
+message SetRequest {
+	string key = 1;
+	string value = 2;
+}
+
+message ComRsp {
+	int64 code = 1;
+	string msg = 2;
+	string data = 3;
+}

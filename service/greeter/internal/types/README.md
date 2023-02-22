@@ -1,0 +1,2 @@
+# types
+struct collection

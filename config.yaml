@@ -1,0 +1,11 @@
+Config:
+  App:
+    Name: "greeter"
+    Env: "dev"
+  MySQL:
+    Host: "127.0.0.1"
+    Port: 3306
+    DbName: "test"
+    User: "root"
+    Pass: "root"
+  Redis:
