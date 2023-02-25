@@ -6,19 +6,25 @@
 - [x] go-micro
 - [x] MySQL
 - [x] Redis
-- [ ] NSQ
+- [x] NSQ
 - [ ] Kafka
 - [ ] etcd
 - [ ] trace
 - [ ] mock
 - [ ] testing
 - [ ] gateway
-- [ ] fasthttp
+- [x] fastHttp
 - [ ] ant
 - [ ] log
-- [ ] redis lock
+- [x] redis lock
+- [ ] ws
+- [x] Auth
 
 ## References
 [Functional options for friendly APIs](https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis)
 
 [深入对比TOML，JSON和YAML](https://developer.aliyun.com/article/611301)
+
+[redsync](https://github.com/go-redsync/redsync)
+
+[Distributed Locks with Redis](https://redis.io/docs/manual/patterns/distributed-locks/)

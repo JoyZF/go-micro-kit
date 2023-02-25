@@ -2,7 +2,6 @@ package conf
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/go-micro/plugins/v4/config/encoder/yaml"
 	"go-micro.dev/v4/config"
 	"go-micro.dev/v4/config/reader"
@@ -31,7 +30,6 @@ func InitConfig(c *Config) {
 		log.Fatal("load config fail %+v", err)
 		return
 	}
-	fmt.Println(string(conf.Bytes()))
 	err := json.Unmarshal(conf.Bytes(), &c)
 	if err != nil {
 		log.Fatal("scan config fail %+v", err)
@@ -42,10 +40,14 @@ type Config struct {
 	App   App
 	MySQL MySQL
 	Redis Redis
+	NSQ   NSQ
 }
 type App struct {
-	Name string
-	Env  string
+	Name             string
+	Env              string
+	RegisterTTL      int
+	RegisterInterval int
+	Version          string
 }
 
 type MySQL struct {
@@ -61,4 +63,10 @@ type Redis struct {
 	Port     int
 	Password string
 	DB       int
+}
+
+type NSQ struct {
+	Topic   string
+	Channel string
+	Addr    string
 }
