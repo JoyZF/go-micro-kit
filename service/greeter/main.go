@@ -45,7 +45,6 @@ func main() {
 		c.NSQ.Channel,
 		c.NSQ.Addr).
 		Consumer(&nsqHandler.Greeter{})
-
 	service.Init(
 		// middleware
 		micro.WrapHandler(middleware.NewAuthWrapper(service)),
