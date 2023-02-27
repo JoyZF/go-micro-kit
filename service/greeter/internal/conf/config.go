@@ -48,6 +48,7 @@ type App struct {
 	RegisterTTL      int
 	RegisterInterval int
 	Version          string
+	Endpoint         string
 }
 
 type MySQL struct {

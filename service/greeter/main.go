@@ -9,7 +9,9 @@ import (
 	"github.com/JoyZF/go-micro-kit/service/greeter/internal/handle"
 	"github.com/JoyZF/go-micro-kit/service/greeter/internal/middleware"
 	"github.com/JoyZF/go-micro-kit/service/greeter/internal/model"
+	"github.com/go-micro/plugins/v4/registry/etcd"
 	"go-micro.dev/v4"
+	"go-micro.dev/v4/registry"
 	"go-micro.dev/v4/server"
 	"go-micro.dev/v4/util/log"
 	"sync"
@@ -21,9 +23,12 @@ var wg sync.WaitGroup
 func main() {
 	var c conf.Config
 	conf.InitConfig(&c)
+	// etcd registry
+	reg := etcd.NewRegistry(registry.Addrs(c.App.Endpoint))
 	// init config
 	service := micro.NewService(
 		micro.Name(c.App.Name),
+		micro.Registry(reg),
 		micro.WrapHandler(waitgroup(&wg)),
 		// waits for the waitgroup once stopped
 		micro.AfterStop(func() error {

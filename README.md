@@ -32,3 +32,5 @@
 [zap](https://github.com/uber-go/zap)
 
 [Golang zap 快速上手](https://cloud.tencent.com/developer/article/2221660)
+
+[Plugins](https://github.com/go-micro/plugins)
