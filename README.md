@@ -8,7 +8,7 @@
 - [x] Redis
 - [x] NSQ
 - [ ] Kafka
-- [ ] etcd
+- [x] etcd
 - [ ] trace
 - [ ] mock
 - [ ] testing
@@ -19,6 +19,8 @@
 - [x] redis lock
 - [ ] ws
 - [x] Auth
+- [x] Link Node
+- [ ] gods
 
 ## References
 [Functional options for friendly APIs](https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis)
@@ -34,3 +36,13 @@
 [Golang zap 快速上手](https://cloud.tencent.com/developer/article/2221660)
 
 [Plugins](https://github.com/go-micro/plugins)
+
+[使用 Gomock 进行单元测试](https://eddycjy.gitbook.io/golang/di-1-ke-za-tan/gomock)
+
+[mock docs](https://github.com/golang/mock#running-mockgen)
+
+[kafka单点部署](https://blog.csdn.net/jhz13075/article/details/120310251)
+
+[sarama](https://pkg.go.dev/github.com/Shopify/sarama)
+
+[为什么不推荐使用Sarama Go客户端收发消息？](https://help.aliyun.com/document_detail/266782.html)
