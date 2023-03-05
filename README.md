@@ -7,7 +7,7 @@
 - [x] MySQL
 - [x] Redis
 - [x] NSQ
-- [ ] Kafka
+- [x] Kafka
 - [x] etcd
 - [ ] trace
 - [ ] mock
