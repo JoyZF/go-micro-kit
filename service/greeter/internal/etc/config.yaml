@@ -3,16 +3,16 @@ App:
   Env: "dev"
   RegisterTTL: 30
   RegisterInterval: 30
-  Version: "latest"
+  Version: "1.0.0"
   Endpoint: "127.0.0.1:2379"
 MySQL:
-  Host: "101.43.17.86"
+  Host: "101.43.31.63"
   Port: 33061
   DbName: "open_bfe"
   User: "root"
   Pass: "123456"
 Redis:
-  Host: "101.43.17.86"
+  Host: "101.43.31.63"
   Port: 6379
   Password: ""
   DB: 0

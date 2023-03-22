@@ -2,20 +2,18 @@ package main
 
 import (
 	"context"
-	"github.com/JoyZF/go-micro-kit/common/nsq/consumer"
-	nsqHandler "github.com/JoyZF/go-micro-kit/common/nsq/handler"
 	"github.com/JoyZF/go-micro-kit/proto/greeter"
 	"github.com/JoyZF/go-micro-kit/service/greeter/internal/conf"
 	"github.com/JoyZF/go-micro-kit/service/greeter/internal/handle"
 	"github.com/JoyZF/go-micro-kit/service/greeter/internal/middleware"
 	"github.com/JoyZF/go-micro-kit/service/greeter/internal/model"
 	"github.com/go-micro/plugins/v4/registry/etcd"
+	"github.com/go-micro/plugins/v4/server/grpc"
 	"go-micro.dev/v4"
 	"go-micro.dev/v4/registry"
 	"go-micro.dev/v4/server"
 	"go-micro.dev/v4/util/log"
 	"sync"
-	"time"
 )
 
 var wg sync.WaitGroup
@@ -38,18 +36,22 @@ func main() {
 		}),
 		micro.WrapHandler(logWrapper),
 		// heartbeat
-		micro.RegisterTTL(time.Second*time.Duration(c.App.RegisterTTL)),
-		micro.RegisterInterval(time.Second*time.Duration(c.App.RegisterInterval)),
+		//micro.RegisterTTL(time.Second*time.Duration(c.App.RegisterTTL)),
+		//micro.RegisterInterval(time.Second*time.Duration(c.App.RegisterInterval)),
 		micro.Version(c.App.Version),
+		// 2 UNKNOWN: No status received
+		// # https://github.com/go-micro/go-micro/issues/2534
+		// # https://github.com/go-micro/plugins/tree/main/v4/server/grpc
+		micro.Server(grpc.NewServer()),
 	)
 	model.InitMySQL(&c.MySQL)
 	model.InitRedis(&c.Redis)
 	// NSQ consumer
-	consumer.NewNSQConsumer(
-		c.NSQ.Topic,
-		c.NSQ.Channel,
-		c.NSQ.Addr).
-		Consumer(&nsqHandler.Greeter{})
+	//consumer.NewNSQConsumer(
+	//	c.NSQ.Topic,
+	//	c.NSQ.Channel,
+	//	c.NSQ.Addr).
+	//	Consumer(&nsqHandler.Greeter{})
 	service.Init(
 		// middleware
 		micro.WrapHandler(middleware.NewAuthWrapper(service)),
